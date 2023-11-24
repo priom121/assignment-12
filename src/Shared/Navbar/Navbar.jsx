@@ -1,8 +1,14 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../public/logo3.jpg'
+import useAuth from "../../Hooks/useAuth";
 
 
 const Navbar = () => {
+  const {user,logOut}= useAuth()
+  const handleLogOut =(e)=>{
+  e.preventDefault()
+  logOut()
+  }
   
  const navLinks = <>
 <ul className="lg:flex items-center gap-5 text-[20px] font-medium">
@@ -61,7 +67,7 @@ Dashboard
 </NavLink>
  </li>
                            
- <li>
+ {/* <li>
  <NavLink
 to="/login"
  className={({ isActive, isPending }) =>
@@ -70,13 +76,13 @@ to="/login"
 >
 Login
  </NavLink>
- </li>
+ </li> */}
 </ul>
  </> 
 // fixed 
 return (
 <div>
-<div className=" navbar  z-10   bg-gradient-to-r from-[#383838] to-[#636262] text-white">
+<div className=" navbar  z-10  bg-gradient-to-r from-[#383838] to-[#636262] text-white">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -101,7 +107,7 @@ return (
   <div className="navbar-end">
    <ul>
   <li>
-{/* {
+{
   user?.email ? <div className="dropdown dropdown-end md:mr-5 z-[10]">
   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
       <div className="w-12 rounded-full">
@@ -109,11 +115,11 @@ return (
       </div>
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 mr-4 z-[1]  shadow bg-base-100 rounded-box max-w-[300px] p-5">
-                       <li className="font-black ml-3">
+                       <li className="font-black text-black ml-3">
                {user?.displayName}
                      </li>
-           <li><a className="px-5" >{user?.email}</a></li>
-      <li><button onClick={handleLogOut} className="text-xl font-bold">Logout</button></li>
+           <li><a className="px-5 text-base text-black" >{user?.email}</a></li>
+      <li><button onClick={handleLogOut} className="text-xl text-black font-bold">Logout</button></li>
                                     
                   </ul>
                                     
@@ -122,12 +128,12 @@ return (
    :<NavLink
    to="/login"
     className={({ isActive, isPending }) =>
-     isPending ? "pending" : isActive ? "text-red-600" : ""
+     isPending ? "pending" : isActive ? "text-red-600 underline " : ""
     }
    >
-   <div className="text-xl font-semibold">Login</div>
+   <div className="text-xl font-semibold underline ">Login</div>
     </NavLink>
-} */}
+}
  </li>
  </ul>
   </div>

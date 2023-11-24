@@ -9,6 +9,7 @@ import ContactUs from "../Pages/Home/Contact/ContactUs";
 import Login from "../SignUpPage/Login";
 import SignUp from "../SignUpPage/SignUp";
 import AboutUs from "../Pages/Home/About/AboutUs";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
      },
      {
        path:'/ContactUs',
-       element:<ContactUs></ContactUs>
+       element:<PrivateRoute><ContactUs></ContactUs></PrivateRoute>
      },
      {
        path:'/aboutUs',
