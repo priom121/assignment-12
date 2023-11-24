@@ -4,16 +4,21 @@ import Lottie from "lottie-react";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { signInWithPopup } from "firebase/auth";
+
 
 const Login = () => {
-  const {signIn ,provider} =useAuth()
+  const {signIn ,googleLogIn} =useAuth()
  const navigate = useNavigate()
  const location = useLocation()
 
  const from = location.state?.from?.pathname || '/'
-  const handleGoogle =()=>{
-   return signInWithPopup()
+  const handleGoogle =(e)=>{
+    e.preventDefault()
+    googleLogIn()
+    .then(res=>{
+      console.log(res.user);
+    })
+    navigate(from,{replace:true})
   }
 
  const handleLogin =(e)=>{

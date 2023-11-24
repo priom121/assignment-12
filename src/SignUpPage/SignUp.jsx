@@ -1,23 +1,34 @@
 import Lottie from "lottie-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import animation from './signUp.json'
 import { useForm } from "react-hook-form"
 import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const {createUser } = useAuth()
-  const { register, handleSubmit, formState: { errors }} = useForm();
-
+  const navigate = useNavigate()
+  const { register, handleSubmit,reset, formState: { errors }} = useForm();
+  const {createUser ,updateUserProfile} = useAuth()
   const onSubmit = (data) => {
     console.log(data)
     createUser(data.email,data.password)
     .then(result=>{
       const loggedUser =result.user 
       console.log(loggedUser);
-      // updateUserProfile(data.name , data.photoURL)
-      // .then(()=>{
-      //   console.log('user info');
-      // })
+      updateUserProfile(data.name , data.photoURL)
+      .then(()=>{
+        console.log('user profile info updated');
+        reset()
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "user register successfully",
+          showConfirmButton: false,
+          timer: 1500
+        })
+        navigate('/')
+      })
+      .catch(error=>console.log(error))
     })
   }
 
