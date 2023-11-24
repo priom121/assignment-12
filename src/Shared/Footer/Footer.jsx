@@ -1,4 +1,4 @@
-import footer from '../../../public/logo2.jpg'
+import footer from '../../../public/logo3.jpg'
 const Footer = () => {
 return (
 <footer className="footer p-10 text-white bg-gradient-to-r  from-[#383838] to-[#494949]    ">
