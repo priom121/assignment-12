@@ -73,6 +73,7 @@ Login
  </li>
 </ul>
  </> 
+//  z-10 fixed 
 return (
 <div>
 <div className=" navbar  bg-gradient-to-r from-[#383838] to-[#636262] text-white">
