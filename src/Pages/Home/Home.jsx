@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 
 const Home = () => {
@@ -6,7 +7,7 @@ const Home = () => {
    <div>
  
       <Banner ></Banner> 
-  
+      <ProfileCard></ProfileCard>
                                                                                  
   </div>
   );

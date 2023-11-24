@@ -1,0 +1,51 @@
+[
+                              {
+                                "id": 1,
+                                "Biodata_Type": "female",
+                                "Image": "https://i.ibb.co/cXWmpKZ/female3.jpg",
+                                "Permanent_Division_Name": "Rangpur",
+                                "Age": 28,
+                                "Occupation": "student"
+                              },
+                              {
+                                "id": 2,
+                                "Biodata_Type": "female",
+                                "Image": "https://i.ibb.co/qY0BzMr/imageeeeeeeeeeee.jpg",
+                                "Permanent_Division_Name": "Rajsahi",
+                                "Age": 35,
+                                "Occupation": "Marketing Manager"
+                              },
+                              {
+                                "id": 3,
+                                "Biodata_Type": "male",
+                                "Image": "https://i.ibb.co/v1y882k/male1.jpg",
+                                "Permanent_Division_Name": "Barishal",
+                                "Age": 42,
+                                "Occupation": "Teacher"
+                              },
+                              {
+                                "id": 4,
+                                "Biodata_Type": "female",
+                                "Image": "https://i.ibb.co/WKWNxFp/female1.jpg",
+                                "Permanent_Division_Name": "chottrogram",
+                                "Age": 31,
+                                "Occupation": "Financial Analyst"
+                              },
+                              {
+                                "id": 5,
+                                "Biodata_Type": "male",
+                                "Image": "https://i.ibb.co/b3JRSGW/male2.jpg",
+                                "Permanent_Division_Name": "dhaka",
+                                "Age": 29,
+                                "Occupation": "Graphic Designer"
+                              },
+                              {
+                                "id": 6,
+                                "Biodata_Type": "male",
+                                "Image": "https://i.ibb.co/HGGybZR/male3.jpg",
+                                "Permanent_Division_Name": "dhaka",
+                                "Age": 38,
+                                "Occupation": "student"
+                              }
+                            ]
+                            
