@@ -1,51 +1,163 @@
 [
                               {
                                 "id": 1,
-                                "Biodata_Type": "female",
-                                "Image": "https://i.ibb.co/cXWmpKZ/female3.jpg",
-                                "Permanent_Division_Name": "Rangpur",
-                                "Age": 28,
-                                "Occupation": "student"
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/WKWNxFp/female1.jpg",
+                                "Permanent_Division_Name":"Rangpur",
+                                "Age":28,
+                                "Occupation":"student"
                               },
                               {
-                                "id": 2,
-                                "Biodata_Type": "female",
-                                "Image": "https://i.ibb.co/qY0BzMr/imageeeeeeeeeeee.jpg",
-                                "Permanent_Division_Name": "Rajsahi",
-                                "Age": 35,
+                                "id":2,
+                                "Biodata_Type":"Male",
+                                "Image": "https://i.ibb.co/v1y882k/male1.jpg",
+                                "Permanent_Division_Name":"Chattagram",
+                                "Age":35,
                                 "Occupation": "Marketing Manager"
                               },
                               {
                                 "id": 3,
-                                "Biodata_Type": "male",
-                                "Image": "https://i.ibb.co/v1y882k/male1.jpg",
-                                "Permanent_Division_Name": "Barishal",
-                                "Age": 42,
-                                "Occupation": "Teacher"
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/cXWmpKZ/female3.jpg",
+                                "Permanent_Division_Name":"Barishal",
+                                "Age":42,
+                                "Occupation":"Teacher"
                               },
                               {
                                 "id": 4,
-                                "Biodata_Type": "female",
-                                "Image": "https://i.ibb.co/WKWNxFp/female1.jpg",
-                                "Permanent_Division_Name": "chottrogram",
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/QcTpgw7/female10.jpg",
+                                "Permanent_Division_Name":"Chattagram",
                                 "Age": 31,
                                 "Occupation": "Financial Analyst"
                               },
                               {
                                 "id": 5,
-                                "Biodata_Type": "male",
-                                "Image": "https://i.ibb.co/b3JRSGW/male2.jpg",
-                                "Permanent_Division_Name": "dhaka",
+                                "Biodata_Type":"Male",
+                                "Image": "https://i.ibb.co/6ydtNFb/male10.jpg",
+                                "Permanent_Division_Name":"Dhaka",
                                 "Age": 29,
-                                "Occupation": "Graphic Designer"
+                                "Occupation":"Graphic Designer"
                               },
                               {
                                 "id": 6,
-                                "Biodata_Type": "male",
+                                "Biodata_Type": "Male",
                                 "Image": "https://i.ibb.co/HGGybZR/male3.jpg",
-                                "Permanent_Division_Name": "dhaka",
+                                "Permanent_Division_Name":"Sylhet",
                                 "Age": 38,
-                                "Occupation": "student"
+                                "Occupation":"Banker"
+                              },
+                              {
+                                "id":7,
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/QcTpgw7/female10.jpg",
+                                "Permanent_Division_Name":"Rangpur",
+                                "Age": 28,
+                                "Occupation":"student"
+                              },
+                              {
+                                "id":8,
+                                "Biodata_Type":"Male",
+                                "Image": "https://i.ibb.co/b3JRSGW/male2.jpg",
+                                "Permanent_Division_Name":"Khulna",
+                                "Age": 35,
+                                "Occupation":"Web developer"
+                              },
+                              {
+                                "id":9,
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/hVWHpSw/female11.jpg",
+                                "Permanent_Division_Name":"Barisal",
+                                "Age":42,
+                                "Occupation":"Teacher"
+                              },
+                              {
+                                "id":10,
+                                "Biodata_Type":"Male",
+                                "Image": "https://i.ibb.co/6ydtNFb/male10.jpg",
+                                "Permanent_Division_Name":"Chattagram",
+                                "Age":31,
+                                "Occupation":"Financial Analyst"
+                              },
+                              {
+                                "id":11,
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/hVWHpSw/female11.jpg",
+                                "Permanent_Division_Name":"Chattagram",
+                                "Age":29,
+                                "Occupation":"Graphic Designer"
+                              },
+                              {
+                                "id":12,
+                                "Biodata_Type": "Male",
+                                "Image": "https://i.ibb.co/b3JRSGW/male2.jpg",
+                                "Permanent_Division_Name":"Sylhet",
+                                "Age":25,
+                                "Occupation":"Student"
+                              },
+                              {
+                                "id":13,
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/tMWcthM/female14.jpg",
+                                "Permanent_Division_Name":"Rangpur",
+                                "Age": 28,
+                                "Occupation":"Home Maker"
+                              },
+                              {
+                                "id":14,
+                                "Biodata_Type":"Female",
+                                "Image": "https://i.ibb.co/qY0BzMr/imageeeeeeeeeeee.jpg",
+                                "Permanent_Division_Name":"Barisal",
+                                "Age":25,
+                                "Occupation": "Marketing Manager"
+                              },
+                              {
+                                "id":15,
+                                "Biodata_Type":"Male",
+                                "Image": "https://i.ibb.co/71jTYGT/male13.jpg",
+                                "Permanent_Division_Name":"Maymansign",
+                                "Age": 42,
+                                "Occupation":"Teacher"
+                              },
+                              {
+                                "id":16,
+                                "Biodata_Type":"Male",
+                                "Image":"https://i.ibb.co/tMWcthM/female14.jpg",
+                                "Permanent_Division_Name":"Khulna",
+                                "Age":31,
+                                "Occupation":"Financial Analyst"
+                              },
+                              {
+                                "id":17,
+                                "Biodata_Type":"Female",
+                                "Image":"https://i.ibb.co/b3JRSGW/male2.jpg",
+                                "Permanent_Division_Name":"Sylhet",
+                                "Age":29,
+                                "Occupation":"Web developer"
+                              },
+                              {
+                                "id": 18,
+                                "Biodata_Type":"Female",
+                                "Image":"https://i.ibb.co/WgVbhJd/female15.jpg",
+                                "Permanent_Division_Name":"Dhaka",
+                                "Age":38,
+                                "Occupation":"student"
+                              },
+                              {
+                                "id":19,
+                                "Biodata_Type":"Male",
+                                "Image":"https://i.ibb.co/HGGybZR/male3.jpg",
+                                "Permanent_Division_Name":"Maymansignh",
+                                "Age":29,
+                                "Occupation":"Graphic Designer"
+                              },
+                              {
+                                "id": 20,
+                                "Biodata_Type":"Male",
+                                "Image":"https://i.ibb.co/v1y882k/male1.jpg",
+                                "Permanent_Division_Name":"Dhaka",
+                                "Age":35,
+                                "Occupation":"Student"
                               }
                             ]
                             

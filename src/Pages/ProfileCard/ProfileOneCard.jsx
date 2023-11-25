@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ProfileOneCard = ({profiles}) => {
- const {_id,Biodata_Type,Image,Permanent_Division_Name,Age,Occupation} =profiles                        
+ const {_id,Image} =profiles                        
 return (
 
 

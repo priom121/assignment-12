@@ -24,7 +24,7 @@ className={({ isActive, isPending }) =>
  </li>                    
  <li>
  <NavLink
-to="/bioData"
+to="/biodata"
  className={({ isActive, isPending }) =>
   isPending ? "pending" : isActive ? "text-red-600 underline" : ""
 }

@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
         element:<Home></Home>                      
      },
      {
-       path:'/bioData',
+       path:'/biodata',
        element:<BioData></BioData>
      },
      {
@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
      },
      {
        path:'/profileDetails/:id',
-       element:<ProfileDetails></ProfileDetails>,
+       element:<PrivateRoute><ProfileDetails></ProfileDetails></PrivateRoute>,
        loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
        
      },
