@@ -5,7 +5,7 @@ import ProfileOneCard from "./ProfileOneCard";
 const ProfileCard = () => {
  const [profile , setProFile] =useState([])
  useEffect(()=>{
-   fetch('blog.json')
+   fetch('http://localhost:5000/blog')
    .then(res=>res.json())
    .then(data=>setProFile(data))
    

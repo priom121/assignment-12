@@ -10,6 +10,7 @@ import Login from "../SignUpPage/Login";
 import SignUp from "../SignUpPage/SignUp";
 import AboutUs from "../Pages/Home/About/AboutUs";
 import PrivateRoute from "./PrivateRoute";
+import ProfileDetails from "../Pages/ProfileCard/ProfileDetails";
 
 
 export const router = createBrowserRouter([
@@ -41,6 +42,12 @@ export const router = createBrowserRouter([
      {
        path:'/signUp',
        element:<SignUp></SignUp>
+     },
+     {
+       path:'/profileDetails/:id',
+       element:<ProfileDetails></ProfileDetails>,
+       loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
+       
      },
   ]
 },
