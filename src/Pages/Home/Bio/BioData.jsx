@@ -1,5 +1,5 @@
 
-import {  useState } from "react";
+// import {  useState } from "react";
 import useBioData from "../../../Hooks/useBioData";
 import BioDetails from "./BioDetails";
 
@@ -8,7 +8,7 @@ import BioDetails from "./BioDetails";
 const BioData = () => {
 
     const [items] = useBioData([])
-    const [search ,setSearch] =useState([])
+    // const [search ,setSearch] =useState([])
 
     // useEffect(()=>{
     //     fetch(`http://localhost:5000/biodata?search=${search}`)
@@ -20,7 +20,7 @@ const BioData = () => {
     e.preventDefault();
     const search =e.target.search.value;
     console.log(search);
-    setSearch(search)
+    // setSearch(search)
  }
 return (
  <div className="max-w-screen-2xl mt-5 mx-auto">

@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import ProfileCard from "../ProfileCard/ProfileCard";
+import Review from "./WebsiteWork/Review";
 import Work from "./WebsiteWork/Work";
 
 
@@ -9,7 +10,8 @@ const Home = () => {
  
       <Banner ></Banner> 
       <ProfileCard></ProfileCard>
-       <Work></Work>                                                                          
+       <Work></Work> 
+       <Review></Review>                                                                         
   </div>
   );
 };
