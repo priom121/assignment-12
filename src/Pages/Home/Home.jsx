@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import ProfileCard from "../ProfileCard/ProfileCard";
+import Work from "./WebsiteWork/Work";
 
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
  
       <Banner ></Banner> 
       <ProfileCard></ProfileCard>
-                                                                                 
+       <Work></Work>                                                                          
   </div>
   );
 };

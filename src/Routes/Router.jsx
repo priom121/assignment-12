@@ -11,6 +11,7 @@ import SignUp from "../SignUpPage/SignUp";
 import AboutUs from "../Pages/Home/About/AboutUs";
 import PrivateRoute from "./PrivateRoute";
 import ProfileDetails from "../Pages/ProfileCard/ProfileDetails";
+import BioOneCard from "../Pages/Home/Bio/BioOneCard";
 
 
 export const router = createBrowserRouter([
@@ -26,6 +27,12 @@ export const router = createBrowserRouter([
      {
        path:'/biodata',
        element:<BioData></BioData>
+    
+     },
+     {
+       path:'/bioOneCard/:id',
+       element:<PrivateRoute><BioOneCard></BioOneCard></PrivateRoute>,
+       loader:({params})=>fetch(`http://localhost:5000/biodata/${params.id}`)
      },
      {
        path:'/ContactUs',

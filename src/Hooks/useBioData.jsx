@@ -3,6 +3,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 
 const useBioData = () => {
+
  const axiosPublic = useAxiosPublic()
  const {data :items=[],isPending:loading,refetch} =useQuery({
      queryKey:['biodata'],
