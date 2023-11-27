@@ -12,7 +12,7 @@ const Review = () => {
         })
       },[])                    
 return (
- <div className="bg-gray-300">
+ <div className="bg-cyan-200">
       <h2 className="text-3xl font-bold text-center 
       ">Reviews </h2>
       <div className="grid grid-cols-1  py-10 gap-7

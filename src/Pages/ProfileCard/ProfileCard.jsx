@@ -7,9 +7,14 @@ const ProfileCard = () => {
  useEffect(()=>{
    fetch('http://localhost:5000/blog')
    .then(res=>res.json())
-   .then(data=>setProFile(data))
+   .then(data=>{
+    const premium = data.filter(premiums=>premiums.status ==='premium')
+    setProFile(premium)
+    // console.log(premium);
+   })
    
 },[])
+
 return (
 <div>
    <h2 className="text-center text-3xl mt-4 font-bold ">BioData</h2>
