@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaEdit ,FaStreetView ,FaAddressCard, FaLock, FaHome } from "react-icons/fa";
+import { MdFavoriteBorder } from "react-icons/md";
 const Dashbord = () => {
 return (
  <div className="flex max-w-screen-xl mx-auto">
@@ -16,6 +17,10 @@ return (
          <li>                     
        <NavLink to='/dashbord/request'>
        <FaAddressCard />   My Contact Request</NavLink>                    
+       </li>                     
+         <li>                     
+       <NavLink to='/dashbord/favourite'>
+       <MdFavoriteBorder />  My Favourite Page</NavLink>                    
        </li>                     
          <li>                     
        <NavLink to='/dashbord/logOut'>

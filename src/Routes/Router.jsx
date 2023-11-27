@@ -14,6 +14,9 @@ import ProfileDetails from "../Pages/ProfileCard/ProfileDetails";
 import BioOneCard from "../Pages/Home/Bio/BioOneCard";
 import Dashbord from "../Layout/Dashbord";
 import EditBioData from "../Pages/Dashbord/EditBioData";
+import ViewBioData from "../Pages/Dashbord/ViewBioData";
+import Favorite from "../Pages/Dashbord/Favorite";
+import ContactRequest from "../Pages/Dashbord/ContactRequest";
 
 
 export const router = createBrowserRouter([
@@ -67,6 +70,18 @@ export const router = createBrowserRouter([
     {
       path:'/dashbord/editBiodata',
       element:<EditBioData></EditBioData>
+    },
+    {
+      path:'/dashbord/viewBioData',
+      element:<ViewBioData></ViewBioData>
+    },
+    {
+      path:'/dashbord/request',
+      element:<ContactRequest></ContactRequest>
+    },
+    {
+      path:'/dashbord/favourite',
+      element:<Favorite></Favorite>
     }
   ]
 }
