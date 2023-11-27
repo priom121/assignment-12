@@ -12,6 +12,8 @@ import AboutUs from "../Pages/Home/About/AboutUs";
 import PrivateRoute from "./PrivateRoute";
 import ProfileDetails from "../Pages/ProfileCard/ProfileDetails";
 import BioOneCard from "../Pages/Home/Bio/BioOneCard";
+import Dashbord from "../Layout/Dashbord";
+import EditBioData from "../Pages/Dashbord/EditBioData";
 
 
 export const router = createBrowserRouter([
@@ -56,8 +58,18 @@ export const router = createBrowserRouter([
        loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
        
      },
-  ]
+  ] 
 },
+{
+  path:'/dashbord',
+  element:<Dashbord></Dashbord>,
+  children:[
+    {
+      path:'/dashbord/editBiodata',
+      element:<EditBioData></EditBioData>
+    }
+  ]
+}
 ]);
 export default router
 

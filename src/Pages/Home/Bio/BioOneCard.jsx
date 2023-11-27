@@ -1,9 +1,11 @@
+
 import { useLoaderData } from "react-router-dom";
 
 const BioOneCard = () => {
       const details = useLoaderData()
 //       console.log('bio data', details);
-      const { id,Biodata_Type,Image,Permanent_Division_Name,Age,Occupation}  = details                   
+      const { id,Biodata_Type,Image,Permanent_Division_Name,Age,Occupation} = details 
+                      
  return (
  <div className="max-w-screen-xl mx-auto">
    <div className="max-w-sm mt-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -21,7 +23,8 @@ const BioOneCard = () => {
   <p className="mb-3 font-normal text-white ">Occupation : {Occupation}</p>
   </div>
 </div>
-</div>                                                                                    
+</div> 
+
  </div>
 );
 };

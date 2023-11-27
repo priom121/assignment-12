@@ -1,13 +1,20 @@
 
-// import {  useState } from "react";
+// import { useEffect, useState } from "react";
 import useBioData from "../../../Hooks/useBioData";
 import BioDetails from "./BioDetails";
 
 
 
 const BioData = () => {
-
+    // const [gender,setGender] =useState([])
     const [items] = useBioData([])
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/biodata')
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         const item = data.filter(items=>item.Biodata_Type === 'male')
+    //     })
+    // },[])
     // const [search ,setSearch] =useState([])
 
     // useEffect(()=>{

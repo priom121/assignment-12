@@ -17,7 +17,7 @@ const ProfileCard = () => {
 
 return (
 <div>
-   <h2 className="text-center text-3xl mt-4 font-bold ">BioData</h2>
+   <h2 className="text-center text-3xl mt-4 font-bold ">Premium BioData</h2>
    <div className="divider w-1/2 mx-auto "></div>
 <div className="py-10 max-w-screen-xl mx-auto
    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

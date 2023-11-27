@@ -58,7 +58,7 @@ Contact Us
  <li>
                                  
  <NavLink
-to="/dashboard"
+to="/dashbord"
 className={({ isActive, isPending }) =>
  isPending ? "pending" : isActive ? "text-red-600 underline" : ""
 }
