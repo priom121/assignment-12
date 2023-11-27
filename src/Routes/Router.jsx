@@ -17,6 +17,7 @@ import EditBioData from "../Pages/Dashbord/EditBioData";
 import ViewBioData from "../Pages/Dashbord/ViewBioData";
 import Favorite from "../Pages/Dashbord/Favorite";
 import ContactRequest from "../Pages/Dashbord/ContactRequest";
+import CheckOut from "../Pages/Home/Bio/CheckOut";
 
 
 export const router = createBrowserRouter([
@@ -46,6 +47,11 @@ export const router = createBrowserRouter([
      {
        path:'/aboutUs',
        element:<AboutUs></AboutUs>
+     },
+     {
+       path:'/checkOut',
+       element:<CheckOut></CheckOut>
+      
      },
      {
        path:'/login',

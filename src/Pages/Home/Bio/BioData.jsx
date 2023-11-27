@@ -15,7 +15,7 @@ const BioData = () => {
     //         const item = data.filter(items=>item.Biodata_Type === 'male')
     //     })
     // },[])
-    // const [search ,setSearch] =useState([])
+    // const [search ,setSearch] =useState('')
 
     // useEffect(()=>{
     //     fetch(`http://localhost:5000/biodata?search=${search}`)
