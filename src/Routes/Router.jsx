@@ -18,6 +18,7 @@ import ViewBioData from "../Pages/Dashbord/ViewBioData";
 import Favorite from "../Pages/Dashbord/Favorite";
 import ContactRequest from "../Pages/Dashbord/ContactRequest";
 import CheckOut from "../Pages/Home/Bio/CheckOut";
+import SuccessStory from "../Pages/Dashbord/SuccessStory";
 
 
 export const router = createBrowserRouter([
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
     {
       path:'/dashbord/favourite',
       element:<Favorite></Favorite>
+    },
+    {
+      path:'/dashbord/successStory',
+      element:<SuccessStory></SuccessStory>
     }
   ]
 }

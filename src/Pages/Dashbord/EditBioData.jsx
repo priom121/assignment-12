@@ -1,10 +1,32 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+
 
 
 const EditBioData = () => {
  const { register, handleSubmit, formState: { errors }} = useForm();
+
+
  const onSubmit =(data)=>{
       console.log(data);
+      fetch('http://localhost:5000/biodata',{
+         method:'POST',
+         headers:{
+            "content-type":"application/json"
+          },
+          body:JSON.stringify(data) 
+      })
+      .then(res=>res.json())
+      .then(data=>{
+       console.log(data);
+       if(data.insertedId){
+         Swal.fire({
+            title: "Good job!",
+            text: "successfully added!",
+            icon: "success"
+          });
+       }
+      })
  }
  return (
  <div className="bg-orange-400 w-full py-12 ml-10  rounded-xl  

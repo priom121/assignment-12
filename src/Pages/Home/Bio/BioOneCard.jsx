@@ -1,5 +1,7 @@
 
 import { Link, useLoaderData } from "react-router-dom";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const BioOneCard = () => {
       const details = useLoaderData()
@@ -8,8 +10,19 @@ const BioOneCard = () => {
     Name, Date_of_Birth, Height,Weight,Race,Father_Name,Mother_Name,
      Present_Division_Name, Expected_Partner_Age,  Expected_Partner_Height,
      Expected_Partner_Weight, Contact_Email, Mobile_Number} = details 
+     const axiosPublic = useAxiosPublic()
       const handleFavourite =()=>{
-        console.log('favourite');
+       axiosPublic.post('/favorite',details)
+       .then(response=>{
+        console.log(response.data);
+        Swal.fire({
+          title: "Good job!",
+          text: "successfully added to favourite data!",
+          icon: "success"
+        });
+       })
+       .catch(error=>console.log(error))
+
       }
                       
  return (
