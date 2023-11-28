@@ -19,6 +19,9 @@ import Favorite from "../Pages/Dashbord/Favorite";
 import ContactRequest from "../Pages/Dashbord/ContactRequest";
 import CheckOut from "../Pages/Home/Bio/CheckOut";
 import SuccessStory from "../Pages/Dashbord/SuccessStory";
+import AdminDashbord from "../Pages/Dashbord/Admin/AdminDashbord";
+import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
+import LogOutUser from "../Pages/Dashbord/LogOutUser";
 
 
 export const router = createBrowserRouter([
@@ -72,15 +75,15 @@ export const router = createBrowserRouter([
 },
 {
   path:'/dashbord',
-  element:<Dashbord></Dashbord>,
+  element:<PrivateRoute><Dashbord></Dashbord></PrivateRoute>,
   children:[
     {
       path:'/dashbord/editBiodata',
-      element:<EditBioData></EditBioData>
+      element:<PrivateRoute><EditBioData></EditBioData></PrivateRoute>
     },
     {
       path:'/dashbord/viewBioData',
-      element:<ViewBioData></ViewBioData>
+      element:<PrivateRoute><ViewBioData></ViewBioData></PrivateRoute>
     },
     {
       path:'/dashbord/request',
@@ -88,12 +91,25 @@ export const router = createBrowserRouter([
     },
     {
       path:'/dashbord/favourite',
-      element:<Favorite></Favorite>
+      element:<PrivateRoute><Favorite></Favorite></PrivateRoute>
     },
     {
       path:'/dashbord/successStory',
-      element:<SuccessStory></SuccessStory>
-    }
+      element:<PrivateRoute><SuccessStory></SuccessStory></PrivateRoute>
+    },
+    {
+       path:'/dashbord/logout',
+       element:<LogOutUser></LogOutUser>
+    },
+    // admin-----
+  {
+    path:'/dashbord/adminDashbord',
+    element:<PrivateRoute><AdminDashbord></AdminDashbord></PrivateRoute>
+  },
+  {
+    path:'/dashbord/manageUsers',
+    element:<ManageUsers></ManageUsers>
+  }
   ]
 }
 ]);

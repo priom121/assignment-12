@@ -26,6 +26,7 @@ const Favorite = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
+        // TODO : you don,t work backend----
      fetch(`http://localhost:5000/favorite/${id}`,{
     method:'DELETE'
      })

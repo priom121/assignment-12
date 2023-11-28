@@ -4,19 +4,28 @@ import Lottie from "lottie-react";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
 const Login = () => {
   const {signIn ,googleLogIn} =useAuth()
  const navigate = useNavigate()
  const location = useLocation()
-
+ const axiosPublic = useAxiosPublic()
  const from = location.state?.from?.pathname || '/'
   const handleGoogle =(e)=>{
     e.preventDefault()
     googleLogIn()
     .then(res=>{
       console.log(res.user);
+      const userInfo ={
+        email:res.user?.email,
+        name:res.user?.displayName 
+      }
+      axiosPublic.post('/users',userInfo)
+      .then(res=>{
+        console.log(res.data);
+      })
     })
     navigate(from,{replace:true})
   }

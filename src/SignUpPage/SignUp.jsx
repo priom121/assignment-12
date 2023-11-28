@@ -4,29 +4,42 @@ import animation from './signUp.json'
 import { useForm } from "react-hook-form"
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic()
   const navigate = useNavigate()
   const { register, handleSubmit,reset, formState: { errors }} = useForm();
   const {createUser ,updateUserProfile} = useAuth()
   const onSubmit = (data) => {
     console.log(data)
+
     createUser(data.email,data.password)
     .then(result=>{
       const loggedUser =result.user 
       console.log(loggedUser);
-      updateUserProfile(data.name , data.photoURL)
+      updateUserProfile(data.name,data.photoURL)
       .then(()=>{
-        console.log('user profile info updated');
-        reset()
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "user register successfully",
-          showConfirmButton: false,
-          timer: 1500
-        })
-        navigate('/')
+        // database
+        const userInfo ={
+          name :data.name,
+          email:data.email 
+        } 
+      axiosPublic.post('/users',userInfo)
+       .then(res=>{
+        if(res.data.insertedId){
+          console.log('user add to the database');
+          reset()
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "user register successfully",
+            showConfirmButton: false,
+            timer: 1500
+          })
+          navigate('/') 
+        }
+       })
       })
       .catch(error=>console.log(error))
     })
