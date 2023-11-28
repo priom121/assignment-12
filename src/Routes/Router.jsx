@@ -22,6 +22,7 @@ import SuccessStory from "../Pages/Dashbord/SuccessStory";
 import AdminDashbord from "../Pages/Dashbord/Admin/AdminDashbord";
 import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
 import LogOutUser from "../Pages/Dashbord/LogOutUser";
+import AdminLogOut from "../Pages/Dashbord/Admin/AdminLogOut";
 
 
 export const router = createBrowserRouter([
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
   {
     path:'/dashbord/manageUsers',
     element:<ManageUsers></ManageUsers>
+  },
+  {
+    path:'/dashbord/adminLogOut',
+    element:<AdminLogOut></AdminLogOut>
   }
   ]
 }

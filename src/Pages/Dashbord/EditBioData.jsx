@@ -4,12 +4,12 @@ import Swal from "sweetalert2";
 
 
 const EditBioData = () => {
- const { register, handleSubmit, formState: { errors }} = useForm();
+ const { register, handleSubmit, } = useForm();
 
 
  const onSubmit =(data)=>{
       console.log(data);
-      fetch('http://localhost:5000/biodata',{
+      fetch('http://localhost:5000/postBio',{
          method:'POST',
          headers:{
             "content-type":"application/json"
