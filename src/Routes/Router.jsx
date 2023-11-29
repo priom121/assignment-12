@@ -23,6 +23,8 @@ import AdminDashbord from "../Pages/Dashbord/Admin/AdminDashbord";
 import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
 import LogOutUser from "../Pages/Dashbord/LogOutUser";
 import AdminLogOut from "../Pages/Dashbord/Admin/AdminLogOut";
+import AdminRoute from "./AdminRoute";
+
 
 
 export const router = createBrowserRouter([
@@ -105,11 +107,13 @@ export const router = createBrowserRouter([
     // admin-----
   {
     path:'/dashbord/adminDashbord',
-    element:<PrivateRoute><AdminDashbord></AdminDashbord></PrivateRoute>
+    element:<AdminRoute><AdminDashbord></AdminDashbord></AdminRoute>
+    // element:<AdminDashbord></AdminDashbord>
   },
   {
     path:'/dashbord/manageUsers',
-    element:<ManageUsers></ManageUsers>
+    element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+    // element:<ManageUsers></ManageUsers>
   },
   {
     path:'/dashbord/adminLogOut',

@@ -7,11 +7,10 @@ const ManageUsers = () => {
      const axiosSecure = useAxiosSecure();
      const {data : users=[] ,refetch} = useQuery({
             queryKey:['/users'],
+            enabled:!!localStorage.getItem('access-token'),
             queryFn: async ()=>{
               const res = await axiosSecure.get('/users',{
-                  headers:{
-                      authorization:`Bearer${localStorage.getItem('access-token')}`        
-                  }
+                 
               })
               return res.data
             }                  
@@ -31,8 +30,19 @@ const ManageUsers = () => {
           }
          })
      }
-     const handlePremium = ()=>{
-
+     const handlePremium = (user)=>{
+        axiosSecure.patch(`/users/premium/${user._id}`)
+        .then(res=>{
+          console.log(res.data);
+          if(res.data.modifiedCount > 0){
+            refetch()
+           Swal.fire({
+           icon: "success",
+            title: `${user.name}is a premium now!`,
+            timer:1500
+   });                 
+           }
+        })
      }
  return (
  <div>
@@ -62,8 +72,8 @@ const ManageUsers = () => {
                     </button>}
                               </td>
                               <td>
-<button onClick={()=>handlePremium(user._id)} className="btn btn-info btn-lg">Premium
-                    </button>
+{ user.premium === 'premium' ? 'Premium':<button onClick={()=>handlePremium(user)} className="btn btn-info btn-lg">Premium
+                    </button>}
                               </td>
                             </tr>)                     
       }
