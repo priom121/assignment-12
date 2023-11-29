@@ -14,7 +14,7 @@ const Review = () => {
 return (
  <div className="bg-cyan-200">
       <h2 className="text-3xl font-bold text-center 
-      ">Reviews </h2>
+      ">Success Story</h2>
       <div className="grid grid-cols-1  py-10 gap-7
        md:grid-cols-2 max-w-screen-2xl mx-auto lg:grid-cols-4">
     {

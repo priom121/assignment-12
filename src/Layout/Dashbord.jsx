@@ -26,6 +26,10 @@ return (
          <li>                     
        <NavLink to='/dashbord/approvedContact'>
        <MdFavoriteBorder /> Approved Contact Request</NavLink>                    
+       </li>
+       <li>                     
+       <NavLink to='/dashbord/success'>
+       <MdFavoriteBorder />Our Success Story </NavLink>                    
        </li>                     
          <li>                     
        <NavLink to='/dashbord/AdminLogOut'>
@@ -48,7 +52,7 @@ return (
          <li>                     
        <NavLink to='/dashbord/favourite'>
        <MdFavoriteBorder />  My Favourite Page</NavLink>                    
-       </li>                     
+       </li>                                          
          <li>                     
        <NavLink to='/dashbord/logOut'>
         <FaLock></FaLock> Logout</NavLink>                    
