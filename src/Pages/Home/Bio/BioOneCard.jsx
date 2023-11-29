@@ -2,15 +2,29 @@
 import { Link, useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import Filter from "./Filter";
 
 const BioOneCard = () => {
+  const [filter ,setFilter] =useState([])
       const details = useLoaderData()
-//       console.log('bio data', details);
+      // console.log('bio data', details);
   const { id,Biodata_Type,Image,Permanent_Division_Name,Age,Occupation,
     Name, Date_of_Birth, Height,Weight,Race,Father_Name,Mother_Name,
-     Present_Division_Name, Expected_Partner_Age,  Expected_Partner_Height,
+     Present_Division_Name, Expected_Partner_Age, Expected_Partner_Height,
      Expected_Partner_Weight, Contact_Email, Mobile_Number} = details 
      const axiosPublic = useAxiosPublic()
+
+     useEffect(()=>{
+       axiosPublic.get('/biodata')
+       .then(res=>{
+        // console.log(res.data);
+        const item = res.data.filter(items=>items.Biodata_Type ===Biodata_Type)
+        setFilter(item)
+       })
+     },[axiosPublic])
+    //  console.log(filter);
+
       const handleFavourite =()=>{
        axiosPublic.post('/favorite',details)
        .then(response=>{
@@ -26,7 +40,9 @@ const BioOneCard = () => {
       }
                       
  return (
- <div className="max-w-screen-xl mx-auto">
+  <div className="flex py-10 justify-evenly flex-1">
+ <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 ">
+
    <div className="max-w-md mt-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 <div>
     <img className="rounded-t-lg w-full h-72" src={Image} alt="" />
@@ -63,9 +79,17 @@ const BioOneCard = () => {
 </div>
 <div className="flex  p-5 justify-between">
   <button onClick={handleFavourite} className="btn btn-secondary">Add to favourite</button>
-  <Link to='/checkOut'>
+  <Link to={`/checkOut/`}>
   <button  className="btn btn-info">Request contact information</button>
   </Link>
+</div>
+</div>
+<div className="flex-1">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+ {
+    filter.map(filters=><Filter key={filters._id} filters={filters}></Filter>)
+  }
+ </div>
 </div>
 </div> 
 

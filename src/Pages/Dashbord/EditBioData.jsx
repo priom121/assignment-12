@@ -38,7 +38,7 @@ const EditBioData = () => {
      <div className="">
      <div className="mx-auto w-1/2">
      <span className="label-text text-base">Biodata Type</span>
-     <label className="input-group" {...register("biodata type", { required: true })} >
+     <label className="input-group" {...register("biodata_type", { required: true })} >
     <select placeholder="Biodata Type" name="biodata type"
        className="w-full select select-bordered ">
           <option selected>Male</option>
@@ -114,13 +114,13 @@ const EditBioData = () => {
              <div className="w-1/2 mx-auto mt-5 ">
      <span className="label-text text-base">Father Name</span>
      <label className="input-group">
-    <input type="text" {...register("father name", { required: true })} placeholder="Father Name" name="father name" className="input input-bordered w-full" />
+    <input type="text" {...register("father_name", { required: true })} placeholder="Father Name" name="father name" className="input input-bordered w-full" />
      </label>
      </div>
              <div className="w-1/2 mx-auto mt-5 ">
      <span className="label-text text-base">Mother Name</span>
      <label className="input-group">
-    <input type="text" {...register("mother name", { required: true })} placeholder="Mother Name" name="mother name" className="input input-bordered w-full" />
+    <input type="text" {...register("mother_name", { required: true })} placeholder="Mother Name" name="mother name" className="input input-bordered w-full" />
      </label>
      </div>
      {/* partner age height weight number */}
@@ -134,7 +134,7 @@ const EditBioData = () => {
      <div className="w-[25%]  mx-auto">
      <span className="label-text text-base">Partner Height</span>
      <label className="input-group">
-    <select placeholder="partner height" name="Partner Height" {...register("Partner Height",{ required: true })}
+    <select placeholder="partner height" name="Partner_Height" {...register("Partner Height",{ required: true })}
        className="w-full select select-bordered ">
           <option >5.1</option>
           <option>5.2</option>
@@ -150,7 +150,7 @@ const EditBioData = () => {
              <div className="w-[25%] mx-auto">
      <span className="label-text text-base">partner Weight</span>
      <label className="input-group">
-    <select placeholder="partner weight" name="partner Weight" {...register("partner Weight", { required: true })}
+    <select placeholder="partner weight" name="partner_Weight" {...register("partner Weight", { required: true })}
        className="w-full select select-bordered ">
           <option >50</option>
           <option>52</option>

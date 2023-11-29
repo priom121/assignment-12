@@ -1,5 +1,5 @@
 
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useBioData from "../../../Hooks/useBioData";
 import BioDetails from "./BioDetails";
 
@@ -7,27 +7,31 @@ import BioDetails from "./BioDetails";
 
 const BioData = () => {
     // const [gender,setGender] =useState([])
+    const [search,setSearch] =useState('')
+    const [bio,setBio] =useState([])
     const [items] = useBioData([])
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/biodata')
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         const item = data.filter(items=>item.Biodata_Type === 'male')
-    //     })
-    // },[])
-    // const [search ,setSearch] =useState('')
+    useEffect(()=>{
+        fetch('http://localhost:5000/biodata')
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+        })
+    },[])
 
-    // useEffect(()=>{
-    //     fetch(`http://localhost:5000/biodata?search=${search}`)
-    //     .then(res=>res.json())
-    //     .then(data=>setSearch(data))
-    // },[search])
+    useEffect(()=>{
+        if(search){
+            fetch(`http://localhost:5000/bio?search=${search}`)
+        .then(res=>res.json())
+        .then(data=>setBio(data))
+        }
+    },[search])
+
 
  const handleSearch =(e)=>{
     e.preventDefault();
     const search =e.target.search.value;
-    console.log(search);
-    // setSearch(search)
+    console.log('search result', search);
+    setSearch(search)
  }
 return (
  <div className="max-w-screen-2xl mt-5 mx-auto">

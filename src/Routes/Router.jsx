@@ -24,6 +24,8 @@ import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
 import LogOutUser from "../Pages/Dashbord/LogOutUser";
 import AdminLogOut from "../Pages/Dashbord/Admin/AdminLogOut";
 import AdminRoute from "./AdminRoute";
+import ApprovePremium from "../Pages/Dashbord/Admin/ApprovePremium";
+import ApprovedContact from "../Pages/Dashbord/Admin/ApprovedContact";
 
 
 
@@ -114,6 +116,14 @@ export const router = createBrowserRouter([
     path:'/dashbord/manageUsers',
     element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
     // element:<ManageUsers></ManageUsers>
+  },
+  {
+   path:'/dashbord/premium',
+   element:<AdminRoute><ApprovePremium></ApprovePremium></AdminRoute>
+  },
+  {
+   path:'/dashbord/approvedContact',
+   element:<AdminRoute><ApprovedContact></ApprovedContact></AdminRoute>
   },
   {
     path:'/dashbord/adminLogOut',

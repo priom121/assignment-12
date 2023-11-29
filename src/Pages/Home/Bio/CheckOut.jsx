@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 
 const CheckOut = () => {
+  
   const {register,handleSubmit } =useForm()
 const onSubmit =(data)=>{
      console.log(data);
