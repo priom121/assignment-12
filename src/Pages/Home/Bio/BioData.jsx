@@ -8,7 +8,7 @@ import BioDetails from "./BioDetails";
 const BioData = () => {
     // const [gender,setGender] =useState([])
     const [search,setSearch] =useState('')
-    const [bio,setBio] =useState([])
+    
     const [items] = useBioData([])
     const [data,setData] =useState(items)
     console.log(items);

@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 const View = ({bios}) => {
  const { id,photo,biodata_type,Age,Occupation,
@@ -8,11 +9,15 @@ const View = ({bios}) => {
   Present_Division_Name, Partner_Height,partner_Weight, email, number} = bios
   const [datas,setDatas] =useState([])
   const axiosPublic = useAxiosPublic()
+const {user} = useAuth()
 
-  // const userInfo ={
-  //   name:data.name
-  // }
- const handlepremium =()=>{
+ const handlepremium =(bios)=>{
+  const favorite = {
+    id : bios.id,
+    name : bios.name,
+    email:bios.email,
+  }
+  
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be a premium!",
@@ -23,7 +28,7 @@ const View = ({bios}) => {
     confirmButtonText: "Yes, !"
   }).then((result) => {
     if (result.isConfirmed) {
-      axiosPublic.post('/modal')
+      axiosPublic.post('/modal',favorite)
       .then(res=>{
         console.log(res.data)
         // setData(res.data)
@@ -75,7 +80,7 @@ const View = ({bios}) => {
                              <p className="mb-3 font-normal text-white "> Mobile Number : { number}</p>
                            </div>
                            <div className="text-center w-full p-2">
-                             <button onClick={handlepremium} className="btn ">Premium</button>
+                             <button onClick={()=>handlepremium(bios)} className="btn ">Premium</button>
                            </div>
                     
                            </div>  
