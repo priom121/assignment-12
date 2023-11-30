@@ -19,7 +19,7 @@ const BioOneCard = () => {
        axiosPublic.get('/biodata')
        .then(res=>{
         // console.log(res.data);
-        const item = res.data.filter(items=>items.Biodata_Type ===Biodata_Type)
+        const item = res.data.filter(items=>items.Biodata_Type === Biodata_Type)
         setFilter(item)
        })
      },[axiosPublic])

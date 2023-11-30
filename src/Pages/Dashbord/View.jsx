@@ -1,17 +1,43 @@
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useState } from "react";
 
 const View = ({bios}) => {
  const { id,photo,biodata_type,Age,Occupation,
   name,Location, Date, Height,Weight,Race,father_name ,mother_name,
   Present_Division_Name, Partner_Height,partner_Weight, email, number} = bios
- const handleClose =()=>{
-    // e.preventDefault()
+  const [datas,setDatas] =useState([])
+  const axiosPublic = useAxiosPublic()
+
+  // const userInfo ={
+  //   name:data.name
+  // }
+ const handlepremium =()=>{
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be a premium!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, !"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axiosPublic.post('/modal')
+      .then(res=>{
+        console.log(res.data)
+        // setData(res.data)
+      })
+      Swal.fire({
+        title: "Success!",
+        text: "this bio data send to admin approve page",
+        icon: "success"
+      });
+    }
+  });
  }
-  const handleAdd =()=>{
-     
-     console.log("handle")
-  }
  return (
-                  <div className="max-w-screen-xl mx-auto">
+  <div className="max-w-screen-xl mx-auto">
 
 <div className="max-w-md mt-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                            <div>
@@ -49,22 +75,7 @@ const View = ({bios}) => {
                              <p className="mb-3 font-normal text-white "> Mobile Number : { number}</p>
                            </div>
                            <div className="text-center w-full p-2">
-{/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>Premium</button>
-<dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4 text-base text-red-500"> Are you sure to make your
-biodata premium</p>
-    <div className="modal-action">
-      <form  method="dialog gap-5">
-        <button onClick={handleAdd} className="btn mr-5  btn-secondary">Yes</button>
-        {/* if there is a button in form, it will close the modal */}
-        <button onClick={handleClose} className="btn btn-warning">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+                             <button onClick={handlepremium} className="btn ">Premium</button>
                            </div>
                     
                            </div>  

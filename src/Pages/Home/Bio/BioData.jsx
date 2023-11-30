@@ -2,35 +2,76 @@
 import { useEffect, useState } from "react";
 import useBioData from "../../../Hooks/useBioData";
 import BioDetails from "./BioDetails";
-
-
+// import { useLoaderData } from "react-router-dom";
+// import '../Bio/BioData/BioData.css'
 
 const BioData = () => {
     // const [gender,setGender] =useState([])
     const [search,setSearch] =useState('')
     const [bio,setBio] =useState([])
     const [items] = useBioData([])
+    const [data,setData] =useState(items)
+    console.log(items);
     useEffect(()=>{
-        fetch('http://localhost:5000/biodata')
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data);
-        })
-    },[])
+        setData(items)
+    },[items])
+    // const [curretPage ,setCurrentPage]= useState(0)
+    // const [itemPerPage ,setItemPerPage] = useState(8)
+
+// pagination--->
+// const {count} =useLoaderData()
+// const numberOfPage =Math.ceil(count / itemPerPage)
+// const pages = [...Array(numberOfPage).keys()];
+// const pages =[]
+// for(let i = 0 ; i<numberOfPage ; i++){
+//     pages.push(i)
+// }
+
+// const handleChange= (e)=>{
+//     const value = parseInt(e.target.value)
+//     console.log( value);
+//     setItemPerPage(value)
+//     setCurrentPage(0)
+// }
+
+// const handlePrevious =()=>{
+//     if(curretPage > 0){
+//         setCurrentPage(curretPage -1)
+//     }
+// }
+
+// const handleNext=()=>{
+//     if(curretPage < pages.length -1){
+//         setCurrentPage(curretPage + 1)
+//     }
+// }
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/biodata')
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //     //   console.log(data);
+    //     setBio(data)
+    //     })
+    // },[])
+    // console.log(bio);
 
     useEffect(()=>{
-        if(search){
+        if(search?.length >0){
             fetch(`http://localhost:5000/bio?search=${search}`)
         .then(res=>res.json())
-        .then(data=>setBio(data))
+        .then(data=>{
+            console.log(data);
+            setData(data)
+        })
         }
     },[search])
+    console.log(search);
 
 
  const handleSearch =(e)=>{
     e.preventDefault();
     const search =e.target.search.value;
-    console.log('search result', search);
+    // console.log('search result', search);
     setSearch(search)
  }
 return (
@@ -49,10 +90,28 @@ return (
 </form>
 <div className="grid grid-cols-1 py-10 md:grid-cols-2 lg:grid-cols-4 gap-5">
     {
-     items.map(item=><BioDetails key={item._id} item={item}></BioDetails>)   
+     data?.map(item=><BioDetails key={item._id} item={item}></BioDetails>)   
     }
 </div>
-                                                                             
+{/* <div className='pagination'>
+                <p>current{curretPage}</p>
+                <button onClick={handlePrevious}>previous</button> */}
+           {/* { 
+           pages.map(page=><button className={curretPage === page ? 'selected': undefined} onClick={()=>setCurrentPage(page)} 
+           key={page}>{page}</button>)
+           } */}
+           
+           {/* {
+            pages.map(page=><button className="text-red-500" key={page}>{page}</button>)
+           } */}
+           {/* <button onClick={handleNext}>Next</button>
+        <select value={itemPerPage} onChange={handleChange} name="" id="">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+        </select> */}
+            {/* </div>                                                                        */}
   </div>
 );
 };

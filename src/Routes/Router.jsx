@@ -42,7 +42,8 @@ export const router = createBrowserRouter([
      },
      {
        path:'/biodata',
-       element:<BioData></BioData>
+       element:<BioData></BioData>,
+       loader:()=>fetch('http://localhost:5000/biodata')
     
      },
      {
