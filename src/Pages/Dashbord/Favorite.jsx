@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import FavoriteDetails from "./FavoriteDetails";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 
 
 const Favorite = () => {
    const [favorite ,setFavorite] =useState([])
+   const {user}= useAuth()
    useEffect(()=>{
-     fetch('http://localhost:5000/favorite')
+     fetch(`http://localhost:5000/favorite/${user?.email}`)
      .then(res=>res.json())
      .then(data=>{
       // console.log(data);
       setFavorite(data)
      })
-   },[])
+   },[user.email])
+   console.log(favorite);
 
    const handleDelete =(id)=>{
       Swal.fire({
@@ -64,9 +67,10 @@ const Favorite = () => {
 </table>
      <div className="mt-5 ">
       {
-         favorite.map(favorites=><FavoriteDetails key={favorites._id} 
+         favorite?.map(favorites=><FavoriteDetails key={favorites._id} 
             favorites={favorites} handleDelete={handleDelete}></FavoriteDetails>)
       }
+     
      </div>
   </div>
  );

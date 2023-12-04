@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import View from "./View";
+import useAuth from "../../Hooks/useAuth";
 
 
 
 const ViewBioData = () => {
       const [ bio ,setBio] =useState([])
+      const {user} =useAuth()
        useEffect(()=>{
             fetch('http://localhost:5000/postBio')
             .then(res=>res.json())
             .then(data=>{
-                  setBio(data)
+                  const filter =data.filter(item=>item?.email === user?.email)
+                  setBio(filter)
             })
-       },[])
+       },[user?.email])
+       console.log(bio);
 return (
 <div className="">
 <h3 className="text-4xl font-bold text-center mt-12 text-yellow-500">

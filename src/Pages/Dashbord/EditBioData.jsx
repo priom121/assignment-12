@@ -1,189 +1,260 @@
-import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 
-const EditBioData = () => {
- const { register, handleSubmit, } = useForm();
+
+const EditBiodata = () => {
+    const { user } = useAuth()
+    const axiosPublic =useAxiosPublic()
+
+    const handelAddBio = (e) => {
+
+        e.preventDefault()
+
+        const form = e.target;
+        const biodataId = form.data_id.value;
+        const name = form.name.value;
+        const profileImage = form.image.value;
+        const fathers_name = form.fathers_name.value;
+        const mother_name = form.mother_name.value;
+        const date_of_birth = form.date_of_birth.value;
+        const division = form.division.value;
+        const present_division = form.present_division.value;
+        const type = form.type.value;
+        const race = form.race.value;
+        const height = form.height.value;
+         const partner_height = form.partner_height.value;
+        const weight = form.weight.value;
+        const partner_weight = form.partner_weight.value;
+        const email = user?.email; 
+        const occupation = form.Occupation.value;
+        const phoneNumber = form.number.value;
+        const age = form.your_age.value;
+        const partner_age = form.partner_age.value;
+
+        const addBioData = {
+            biodataId,
+            email,
+            name,
+            profileImage,
+            fathers_name,
+            mother_name,
+            date_of_birth,
+            division,
+            present_division,
+            type,
+            race,
+            height,
+             partner_height,
+            partner_weight,
+            weight,
+            occupation,
+            age,
+            partner_age,
+            phoneNumber
+        };
+
+        console.table(addBioData);
+        // form.reset()
+        axiosPublic.post('/postBio', addBioData)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `Added to your Bio Data collection`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                }
+            })
+            .catch(error => {
+                console.error("Error  post request:", error);
+            });
+    }
+    return (
+        <div>
+            <h2 className="text-3xl font-semibold text-green-600 text-center">Create  Bio Data</h2>
+
+            <form onSubmit={handelAddBio} className="card-body">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Bio data Id</span>
+                        </label>
+                        <input type="number" name="data_id" className="input input-bordered" placeholder="Enter Your Name" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Name</span>
+                        </label>
+                        <input type="text" name="name" className="input input-bordered" placeholder="Enter Your Name" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500"> Image</span>
+                        </label>
+                        <input type="text" name="image" placeholder=" PhotoURL" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500"> Father name</span>
+                        </label>
+                        <input type="text" name="fathers_name" placeholder="Fathers name" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500"> Mother name</span>
+                        </label>
+                        <input type="text" name="mother_name" placeholder="Mother name" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Date of birth</span>
+                        </label>
+                        <input type="date" name="date_of_birth" placeholder="Date of birth" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor='Permanent Division' className='block  text-base font-semibold text-yellow-500'>
+                            Permanent Division
+                        </label>
+                        <select
+                            required
+                            className='w-full px-4 py-3 border-blue-300'
+                            name='division'
+                        >
+                            <option disabled value="">division</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Chattagram">Chattagram</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Maymansign">Maymansign</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Barisal">Barisal</option>
+                        </select>
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor='Present Division name' className='block text-base font-semibold text-yellow-500'>
+                            Present Division name
+                        </label>
+                        <select
+                            required
+                            className='w-full px-4 py-3 border-blue-300 '
+                            name='present_division'
+                        >
+                            <option disabled value="">division</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Chattagram">Chattagram</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Maymansign">Maymansign</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Barisal">Barisal</option>
+                        </select>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Gender</span>
+                        </label>
+                        <select
+                            required
+                            className='w-full px-4 py-3 border-blue-300  '
+                            name='type'
+                        >
+                            <option disabled value="Gender"> Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500"> Race</span>
+                        </label>
+                        <input type="text" name="race" placeholder="Race" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Height</span>
+                        </label>
+                        <input type="text" name="height" placeholder="Height" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control">
+                        <label className="label ">
+                            <span className="label-text text-base font-semibold text-yellow-500">Partner Height </span>
+                        </label>
+                        <input type="text" name="partner_height" placeholder="Partner Height" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Weight</span>
+                        </label>
+                        <input type="number" name="weight" placeholder="Weight" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Partner Weight</span>
+                        </label>
+                        <input type="number" name="partner_weight" placeholder="Partner Weight" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Your Email</span>
+                        </label>
+                        <input readOnly type="email" defaultValue={user?.email} name="user_email" placeholder=" Your email" className="input input-bordered" required />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Occupation</span>
+                        </label>
+                        <input type="text" name="Occupation" placeholder=" Occupation" className="input input-bordered" required />
+                    </div>
 
 
- const onSubmit =(data)=>{
-      console.log(data);
-      fetch('http://localhost:5000/postBio',{
-         method:'POST',
-         headers:{
-            "content-type":"application/json"
-          },
-          body:JSON.stringify(data) 
-      })
-      .then(res=>res.json())
-      .then(data=>{
-       console.log(data);
-       if(data.insertedId){
-         Swal.fire({
-            title: "Good job!",
-            text: "successfully added!",
-            icon: "success"
-          });
-       }
-      })
- }
- return (
- <div className="bg-orange-400 w-full py-12 ml-10  rounded-xl  
- mt-5 mb-5 max-w-screen-xl mx-auto h-full">
-  <form onSubmit={handleSubmit(onSubmit)} >
- <label className="ml-10 text-center ">
-  <span className=" text-2xl mt-4 font-medium">Edit BioData</span>
-     </label>
-     <div className="">
-     <div className="mx-auto w-1/2">
-     <span className="label-text text-base">Biodata Type</span>
-     <label className="input-group" {...register("biodata_type", { required: true })} >
-    <select placeholder="Biodata Type" name="biodata type"
-       className="w-full select select-bordered ">
-          <option selected>Male</option>
-          <option>Female</option>
- </select>
-     </label>
-             </div>
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Name</span>
-     <label className="input-group">
-    <input type="text"  {...register("name", { required: true })} placeholder="Name" name="name" className="input input-bordered w-full" />
-    {/* {errors.name && <span className="text-red-500">name is required</span>} */}
-     </label>
-     </div>
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Image</span>
-     <label className="input-group">
-    <input type="text"  {...register("photo", { required: true })} placeholder="photo" name="photo" className="input input-bordered w-full" />
-     </label>
-     </div>
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Division</span>
-     <label className="input-group">
-    <select placeholder="Pickup Location"  {...register("Location",{ required: true })} name="Location"
-       className="w-full select select-bordered  ">
-          <option selected>Dhaka</option>
-          <option>Chattagram</option>
-          <option>Rangpur</option>
-          <option>Barisal</option>
-          <option>Khulna</option>
-          <option>Maymansign</option>
-          <option>Sylhet</option>
- </select>
-     </label>
-     </div>
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Date of birth</span>
-     <label className="input-group">
-    <input type="Date"{...register("Date", { required: true })}  placeholder=" Expired Date" name="Date" className="input input-bordered w-full" />
-     </label>
-     </div>
-     <div className="mx-auto w-1/2">
-     <span className="label-text text-base">user height</span>
-     <label className="input-group">
-    <select placeholder="height" name="Height" {...register("Height", { required: true })}
-       className="w-full select select-bordered ">
-          <option >5.5</option>
-          <option>5.6</option>
-          <option>5.7</option>
-          <option>5.8</option>
-          <option>5.9</option>
-          <option>5.10</option>
-          <option>6</option>
- </select>
-     </label>
-             </div>
-     <div className="mx-auto w-1/2">
-     <span className="label-text text-base">user weight</span>
-     <label className="input-group">
-    <select placeholder="weight" name="Weight"  {...register("Weight", { required: true })}
-       className="w-full select select-bordered ">
-          <option >55</option>
-          <option>56</option>
-          <option>57</option>
-          <option>58</option>
-          <option>59</option>
-          <option>60</option>
-          <option>62</option>
-          <option>65</option>
- </select>
-     </label>
-             </div>
-             <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Father Name</span>
-     <label className="input-group">
-    <input type="text" {...register("father_name", { required: true })} placeholder="Father Name" name="father name" className="input input-bordered w-full" />
-     </label>
-     </div>
-             <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Mother Name</span>
-     <label className="input-group">
-    <input type="text" {...register("mother_name", { required: true })} placeholder="Mother Name" name="mother name" className="input input-bordered w-full" />
-     </label>
-     </div>
-     {/* partner age height weight number */}
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">Partner Age</span>
-     <label className="input-group">
-    <input type="text"{...register("age", { required: true })} placeholder="Partner Age" name="age" className="input input-bordered w-full" />
-     </label>
-     </div>
-     <div className="flex">
-     <div className="w-[25%]  mx-auto">
-     <span className="label-text text-base">Partner Height</span>
-     <label className="input-group">
-    <select placeholder="partner height" name="Partner_Height" {...register("Partner Height",{ required: true })}
-       className="w-full select select-bordered ">
-          <option >5.1</option>
-          <option>5.2</option>
-          <option>5.3</option>
-          <option>5.4</option>
-          <option>5.5</option>
-          <option>5.6</option>
-          <option>5.7</option>
-          <option>5.8</option>
- </select>
-     </label>
-             </div>
-             <div className="w-[25%] mx-auto">
-     <span className="label-text text-base">partner Weight</span>
-     <label className="input-group">
-    <select placeholder="partner weight" name="partner_Weight" {...register("partner Weight", { required: true })}
-       className="w-full select select-bordered ">
-          <option >50</option>
-          <option>52</option>
-          <option>53</option>
-          <option>55</option>
-          <option>58</option>
-          <option>59</option>
-          <option>63</option>
-          <option>65</option>
- </select>
-     </label>
-             </div>                      
-     </div>
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">user email</span>
-     <label className="input-group">
-    <input type="email" {...register("email", { required: true })} placeholder="user email" name="email" className="input input-bordered w-full" />
-     </label>
-     </div>
-     <div className="w-1/2 mx-auto mt-5 ">
-     <span className="label-text text-base">user number</span>
-     <label className="input-group">
-    <input type="text" {...register("number", { required: true })}  placeholder="user number" name="number" className="input input-bordered w-full" />
-     </label>
-     </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Mobile Number
+                            </span>
+                        </label>
+                        <input name="number" type="text" placeholder=" Number" className="input input-bordered " required />
 
-   <div className="text-center mt-5">
-  <button className="btn btn-info ">Publish Now</button>
-  </div>
-     </div>
- </form>   
-</div>
-);
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Your Age
+                            </span>
+                        </label>
+                        <input name="your_age" type="text" placeholder="Your Age" className="input input-bordered" required />
+
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text text-base font-semibold text-yellow-500">Partner Age
+                            </span>
+                        </label>
+                        <input name="partner_age" type="text" placeholder="Partner Age" className="input input-bordered" required />
+
+                    </div>
+                </div>
+                <div className="form-control mt-6">
+
+                    <input className="btn bg-blue-400 btn-block"
+                     type="submit" value="Add Your Bio Data" />
+                </div>
+            </form>
+        </div>
+    );
 };
 
-export default EditBioData;
+export default EditBiodata;

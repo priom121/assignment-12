@@ -17,7 +17,7 @@ import EditBioData from "../Pages/Dashbord/EditBioData";
 import ViewBioData from "../Pages/Dashbord/ViewBioData";
 import Favorite from "../Pages/Dashbord/Favorite";
 import ContactRequest from "../Pages/Dashbord/ContactRequest";
-import CheckOut from "../Pages/Home/Bio/CheckOut";
+
 import SuccessStory from "../Pages/Dashbord/SuccessStory";
 import AdminDashbord from "../Pages/Dashbord/Admin/AdminDashbord";
 import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
@@ -27,6 +27,9 @@ import AdminRoute from "./AdminRoute";
 import ApprovePremium from "../Pages/Dashbord/Admin/ApprovePremium";
 import ApprovedContact from "../Pages/Dashbord/Admin/ApprovedContact";
 import OurSuccess from "../Pages/Dashbord/Admin/OurSuccess";
+import UserHome from "../Pages/Dashbord/UserDashbord/UserHome";
+import CheckoutPage from "../Pages/Home/Bio/CheckOutPage";
+
 
 
 
@@ -43,13 +46,13 @@ export const router = createBrowserRouter([
      {
        path:'/biodata',
        element:<BioData></BioData>,
-       loader:()=>fetch('http://localhost:5000/biodata')
+       loader:()=>fetch('https://matrimonius-server.vercel.app/biodata')
     
      },
      {
        path:'/bioOneCard/:id',
        element:<PrivateRoute><BioOneCard></BioOneCard></PrivateRoute>,
-       loader:({params})=>fetch(`http://localhost:5000/biodata/${params.id}`)
+       loader:({params})=>fetch(`https://matrimonius-server.vercel.app/biodata/${params.id}`)
      },
      {
        path:'/ContactUs',
@@ -61,7 +64,7 @@ export const router = createBrowserRouter([
      },
      {
        path:'/checkOut',
-       element:<CheckOut></CheckOut>
+       element:<CheckoutPage></CheckoutPage>
       
      },
      {
@@ -75,7 +78,7 @@ export const router = createBrowserRouter([
      {
        path:'/profileDetails/:id',
        element:<PrivateRoute><ProfileDetails></ProfileDetails></PrivateRoute>,
-       loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
+       loader:({params})=>fetch(`https://matrimonius-server.vercel.app/blog/${params.id}`)
        
      },
   ] 
@@ -84,6 +87,10 @@ export const router = createBrowserRouter([
   path:'/dashbord',
   element:<PrivateRoute><Dashbord></Dashbord></PrivateRoute>,
   children:[
+    {
+      path:'/dashbord/userHome',
+      element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
+    },
     {
       path:'/dashbord/editBiodata',
       element:<PrivateRoute><EditBioData></EditBioData></PrivateRoute>

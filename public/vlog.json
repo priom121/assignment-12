@@ -1,0 +1,35 @@
+[
+                              {
+                                "selfBiodataNumber": 162,
+                                "partnerBiodataNumber": 882,
+                                "couple_image": "https://i.ibb.co/TtmvTyH/img3.jpg",
+                                "marriage_date": "2020-11-08",
+                                "review_star": 4.8,
+                                "success_text": "An elegant city wedding in a historic venue. The newlyweds danced the night away in a ballroom adorned with crystal chandeliers, creating a timeless and sophisticated atmosphere."
+                              },
+                              {
+                                "selfBiodataNumber": 343,
+                                "partnerBiodataNumber": 444,
+                                "couple_image": "https://i.ibb.co/0KV7fmc/wedding.webp",
+                                "marriage_date": "2021-09-28",
+                                "review_star": 5,
+                                "success_text": "A stunning beach wedding at sunset. The bride and groom walked down the sandy aisle as the sun dipped below the horizon, painting the sky in hues of orange and pink."
+                              },
+                              {
+                                "selfBiodataNumber": 533,
+                                "partnerBiodataNumber":556,
+                                "couple_image": "https://i.ibb.co/VJkFGy7/image1.jpg",
+                                "marriage_date": "2023-02-10",
+                                "review_star": 4.2,
+                                "success_text": "A rustic barn wedding filled with laughter and joy. The couple celebrated their love surrounded by twinkle lights, hay bales, and the warmth of family and friends."
+                              },
+                              {
+                                "selfBiodataNumber": 247,
+                                "partnerBiodataNumber": 588,
+                                "couple_image": "https://i.ibb.co/2nM9q2Q/14.jpg",
+                                "marriage_date": "2022-05-15",
+                                "review_star": 4.5,
+                                "success_text": "A beautiful wedding ceremony in a serene garden setting. The couple exchanged vows under a canopy of flowers, creating a magical atmosphere."
+                              }
+                            ]
+                            

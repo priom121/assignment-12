@@ -6,7 +6,7 @@ const Dashbord = () => {
   const [admin] = useAdmin();
  console.log('admin ',admin);
 return (
- <div className="flex max-w-screen-xl  mx-auto">
+ <div className="flex max-w-screen-xl mx-auto">
     <div className="w-64 min-h-screen bg-cyan-400">
        <ul className="menu p-4 text-lg">
     {
@@ -37,6 +37,10 @@ return (
        </li>
       </>
       :<>
+           <li >                     
+       <NavLink to='/dashbord/userHome'>
+       <FaHome /> UserHome</NavLink>                    
+       </li>                                        
            <li >                     
        <NavLink to='/dashbord/editBiodata'>
        <FaEdit /> Edit Biodata</NavLink>                    

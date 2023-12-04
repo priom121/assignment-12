@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../public/logo3.jpg'
 import useAuth from "../../Hooks/useAuth";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 const Navbar = () => {
   const {user,logOut}= useAuth()
+   const {admin} =useAdmin()
   const handleLogOut =(e)=>{
   e.preventDefault()
   logOut()
   }
+
   
  const navLinks = <>
 <ul className="lg:flex items-center gap-5 text-[20px] font-medium">
@@ -55,7 +58,13 @@ className={({ isActive, isPending }) =>
 Contact Us
 </NavLink>
  </li>
- <li>
+ {user && admin && (
+                <NavLink to="/dashboard/adminDashbord" activeClassName="text-red-500 underline">
+                    Dashboard
+                </NavLink>
+            )}
+
+{user && !admin && <li>
                                  
  <NavLink
 to="/dashbord"
@@ -65,7 +74,7 @@ className={({ isActive, isPending }) =>
 >
 Dashboard
 </NavLink>
- </li>
+ </li>}
                            
  {/* <li>
  <NavLink

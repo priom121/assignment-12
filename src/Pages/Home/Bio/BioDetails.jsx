@@ -6,7 +6,7 @@ const BioDetails = ({item}) => {
  const { _id,Image,Biodata_Type,Permanent_Division_Name} = item;
 return (
  <div>
-    <div className="max-w-sm mt-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div>
         <img className="rounded-t-lg w-full h-72" src={Image} alt="" />
     </div>

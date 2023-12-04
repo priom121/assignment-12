@@ -4,8 +4,11 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import Filter from "./Filter";
+import axios from "axios";
+import useAuth from "../../../Hooks/useAuth";
 
 const BioOneCard = () => {
+  const {user} =useAuth()
   const [filter ,setFilter] =useState([])
       const details = useLoaderData()
       // console.log('bio data', details);
@@ -14,7 +17,12 @@ const BioOneCard = () => {
      Present_Division_Name, Expected_Partner_Age, Expected_Partner_Height,
      Expected_Partner_Weight, Contact_Email, Mobile_Number} = details 
      const axiosPublic = useAxiosPublic()
-
+const item ={
+  id,Biodata_Type,Image,Permanent_Division_Name,Age,Occupation,
+    Name, Date_of_Birth, Height,Weight,Race,Father_Name,Mother_Name,
+     Present_Division_Name, Expected_Partner_Age, Expected_Partner_Height,
+     Expected_Partner_Weight, Contact_Email, Mobile_Number,email:user?.email
+} 
      useEffect(()=>{
        axiosPublic.get('/biodata')
        .then(res=>{
@@ -26,7 +34,9 @@ const BioOneCard = () => {
     //  console.log(filter);
 
       const handleFavourite =()=>{
-       axiosPublic.post('/favorite',details)
+        console.log(item)
+       axios.post('http://localhost:5000/favorite',item)
+       
        .then(response=>{
         console.log(response.data);
         Swal.fire({

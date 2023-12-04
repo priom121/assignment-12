@@ -4,18 +4,19 @@ import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 
 const View = ({bios}) => {
- const { id,photo,biodata_type,Age,Occupation,
-  name,Location, Date, Height,Weight,Race,father_name ,mother_name,
-  Present_Division_Name, Partner_Height,partner_Weight, email, number} = bios
+ const { id,profileImage,type,
+  name,division, date_of_birth, height,weight,race,fathers_name ,mother_name,
+  partner_height,partner_weight, email, phoneNumber} = bios
   const [datas,setDatas] =useState([])
   const axiosPublic = useAxiosPublic()
 const {user} = useAuth()
 
  const handlepremium =(bios)=>{
   const favorite = {
-    id : bios.id,
+    id : bios.id,         //update korte hobe ?
     name : bios.name,
     email:bios.email,
+    // emails:user?.email
   }
   
   Swal.fire({
@@ -46,38 +47,38 @@ const {user} = useAuth()
 
 <div className="max-w-md mt-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                            <div>
-                               <img className="rounded-t-lg w-full h-72" src={photo} alt="" />
+                               <img className="rounded-t-lg w-full h-72" src={profileImage} alt="" />
                            </div>
                            <div className="p-5">
                                <div className="flex justify-between">
                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> id : {id}</h5>
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Biodata Type :{biodata_type}
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Biodata Type :{type}
                                     </h5>
                                </div>
                                <p className="mb-3 font-normal text-white"> Name : {name}</p>
-                           <p className="mb-3 font-normal text-white"> Date of Birth: {Date}</p>
+                           <p className="mb-3 font-normal text-white"> Date of Birth: {date_of_birth}</p>
                            <div className="flex justify-evenly">
-                           <p className="mb-3 font-normal text-white"> Height : {Height}</p>
-                           <p className="mb-3 font-normal text-white">Weight : {Weight}</p>
-                           <p className="mb-3 font-normal text-white"> Race : {Race}</p>
+                           <p className="mb-3 font-normal text-white"> Height : {height}</p>
+                           <p className="mb-3 font-normal text-white">Weight : {weight}</p>
+                           <p className="mb-3 font-normal text-white"> Race : {race}</p>
                            </div>
                            <div className="flex justify-between">
-                           <p className="mb-3 font-normal text-white"> Father Name : {father_name}</p>
+                           <p className="mb-3 font-normal text-white"> Father Name : {fathers_name}</p>
                            <p className="mb-3 font-normal text-white">Mother Name : {mother_name}</p>
                            </div>
-                               <p className="mb-3 font-normal text-white">Permanent Division Name :</p>
-                               <p className="mb-3 font-normal text-white">Present Division Name : {Present_Division_Name}</p>
+                               <p className="mb-3 font-normal text-white">Permanent Division Name :{division} </p>
+                               <p className="mb-3 font-normal text-white">Present Division Name : {division}</p>
                              <div className="flex justify-evenly">
-                             <p className="mb-3 font-normal text-white "> {Location}    </p>
-                             <p className="mb-3 font-normal text-white ">Expected Partner Height : {Partner_Height}</p>
-                             <p className="mb-3 font-normal text-white ">Expected Partner Weight : {partner_Weight}</p>
+                             <p className="mb-3 font-normal text-white ">    </p>
+                             <p className="mb-3 font-normal text-white ">Expected Partner Height : {partner_height}</p>
+                             <p className="mb-3 font-normal text-white ">Expected Partner Weight : {partner_weight}</p>
                              </div>
-                             <div className="flex justify-between">
+                             {/* <div className="flex justify-between">
                              <p className="mb-3 font-normal text-white ">Age : {Age}</p>
                              <p className="mb-3 font-normal text-white ">Occupation : {Occupation}</p>
-                             </div>
+                             </div> */}
                              <p className="mb-3 font-normal text-white ">Contact Email : {email}</p>
-                             <p className="mb-3 font-normal text-white "> Mobile Number : { number}</p>
+                             <p className="mb-3 font-normal text-white "> Mobile Number : { phoneNumber}</p>
                            </div>
                            <div className="text-center w-full p-2">
                              <button onClick={()=>handlepremium(bios)} className="btn ">Premium</button>
