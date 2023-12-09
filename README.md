@@ -17,4 +17,4 @@ Currently, two official plugins are available:
 5.so our website have 70% success story so you can trust our all members thanks you.
 </p>
 
-Live Link : assignment-12-96511.web.app
+Live Link : https://assignment-12-96511.web.app/
