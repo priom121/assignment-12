@@ -5,7 +5,7 @@ import ProfileOneCard from "./ProfileOneCard";
 const ProfileCard = () => {
  const [profile , setProFile] =useState([])
  useEffect(()=>{
-   fetch('http://localhost:5000/blog')
+   fetch('https://matrimonius-server.vercel.app/blog')
    .then(res=>res.json())
    .then(data=>{
     const premium = data.filter(premiums=>premiums.status ==='premium')

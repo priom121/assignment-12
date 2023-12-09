@@ -35,7 +35,7 @@ const item ={
 
       const handleFavourite =()=>{
         console.log(item)
-       axios.post('http://localhost:5000/favorite',item)
+       axios.post('https://matrimonius-server.vercel.app/favorite',item)
        
        .then(response=>{
         console.log(response.data);

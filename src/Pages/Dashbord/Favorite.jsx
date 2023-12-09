@@ -9,7 +9,7 @@ const Favorite = () => {
    const [favorite ,setFavorite] =useState([])
    const {user}= useAuth()
    useEffect(()=>{
-     fetch(`http://localhost:5000/favorite/${user?.email}`)
+     fetch(`https://matrimonius-server.vercel.app/favorite/${user?.email}`)
      .then(res=>res.json())
      .then(data=>{
       // console.log(data);
@@ -30,7 +30,7 @@ const Favorite = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // TODO : you don,t work backend----
-     fetch(`http://localhost:5000/favorite/${id}`,{
+     fetch(`https://matrimonius-server.vercel.app/favorite/${id}`,{
     method:'DELETE'
      })
       .then(res=>res.json())

@@ -8,7 +8,7 @@ const ViewBioData = () => {
       const [ bio ,setBio] =useState([])
       const {user} =useAuth()
        useEffect(()=>{
-            fetch('http://localhost:5000/postBio')
+            fetch('https://matrimonius-server.vercel.app/postBio')
             .then(res=>res.json())
             .then(data=>{
                   const filter =data.filter(item=>item?.email === user?.email)
